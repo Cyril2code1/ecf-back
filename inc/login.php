@@ -46,7 +46,3 @@ if (!empty($error)) {
         <button type="submit" class="btn btn-primary mb-4">se connecter</button>
     </div>
 </form>
-
-<div class="d-flex flex-row-reverse">
-    <a href="./index.php?action=signup">s'incrire</a>
-</div>
