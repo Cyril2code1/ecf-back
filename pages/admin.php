@@ -2,6 +2,8 @@
 
 <?php
 
-Signup::signup1() ;
+$tier = new Tiers();
 
-include_once INC."signup_consultant_form.php";
+echo($tier->tierSignup());
+
+include_once INC.'signup_form.php';

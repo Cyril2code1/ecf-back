@@ -10,6 +10,7 @@ Autoloader::register();
 // start a buffer
 ob_start();
 
+
 //start session
 session_start();
 

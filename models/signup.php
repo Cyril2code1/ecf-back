@@ -72,12 +72,15 @@ class Signup {
                 $sql = "SELECT * FROM tiers WHERE email = '$email'";
                 $tier = $db->query($sql);
 
+echo '<pre>';
+var_dump($role);
                 if (empty($tier)){
-                    $stmt = "INSERT INTO tiers (uuid, email, password, role)
+                    $stmt = "INSERT INTO tiers (uuid, email, password, role, validation)
                      VALUE (uuid(),
                             '$email',
                             '$password',
-                            '$role'
+                            '$role',
+                            0
                         )";
                     $db->query($stmt);
                     $message = 'le compte a bien été créé, il est en attente de validation';
@@ -87,7 +90,7 @@ class Signup {
                 }  
 
             } else {
-            $error = 'les mots de passe ne sont pas identiques';
+                $error = 'les mots de passe ne sont pas identiques';
             }           
         }
         
