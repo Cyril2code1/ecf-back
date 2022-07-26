@@ -7,6 +7,10 @@ class Router1 {
     }
 
    static function main_route(){
+    if (isset($_SESSION['role'])){
+        $_GET['section'] = $_SESSION['role'];
+    }
+    
     if (isset($_GET['section'])){
         $section = $_GET['section'];
     } else {
