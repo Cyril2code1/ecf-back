@@ -70,7 +70,6 @@ class Tiers {
                                 )";
 
                     $db->query($stmt);
-                    var_dump($db);
                     $message = '<div class="border border-success border-3 p-2">le compte a bien été créé';
                     if ($role !== 'consultant') { $message .= ', il est en attente de validation';}
                     $message .= '</div>';
@@ -79,51 +78,11 @@ class Tiers {
         }
     }
 
+    public function pendingInscription() {
+        $db = new Database;
+        $stmt = "SELECT * FROM tiers WHERE validation = '0'";
+        $sql = $db->query($stmt);
+        return $sql;
+    }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-/*
-                
-
-echo '<pre>';
-var_dump($role);
-                if (empty($tier)){
-                    
-
-                } else {
-                    
-                }  
-
-            } else {
-                $error = 'les mots de passe ne sont pas identiques';
-            }           
-        }
-        
-        if(!empty($message)){ 
-        ?>
-              <div class="border border-success border-3 p-2">
-                  <?= $message ?>
-              </div>
-        <?php 
-        }   
-        
-        
-
-    }
-}
-
-*/

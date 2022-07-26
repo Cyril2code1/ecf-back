@@ -12,6 +12,6 @@ if(isset($_GET['section'])) {
 <?php 
 if(isset($_GET['action'])) { 
 ?>
-<p>section = <?php echo $_GET['action']; ?> </p>
+<p>action = <?php echo $_GET['action']; ?> </p>
 <?php 
 } 
