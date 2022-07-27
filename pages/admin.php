@@ -1,3 +1,7 @@
+<?php
+Security::auth();
+?>
+
 <h2>Admin - créer un compte consultant</h2>
 
 <?php

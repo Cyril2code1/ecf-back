@@ -1,3 +1,8 @@
 <?php
+Security::auth();
+?>
 
-echo ('recruteur');
+<h2>Recruteur</h2>
+<?php
+
+Router1::recruteur_route();

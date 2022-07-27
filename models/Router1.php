@@ -7,10 +7,13 @@ class Router1 {
     }
 
    static function main_route(){
+
+    /*
     if (isset($_SESSION['role'])){
         $_GET['section'] = $_SESSION['role'];
     }
-    
+    */
+
     if (isset($_GET['section'])){
         $section = $_GET['section'];
     } else {
@@ -30,6 +33,7 @@ class Router1 {
         return require PAGES.'error.php';
     }
    }
+
 
    static function consultant_route(){
     if (isset($_SESSION['role']) && $_SESSION['role']==='consultant'){
@@ -54,4 +58,33 @@ class Router1 {
     }
    }
    
+   static function recruteur_route() {
+    if (isset($_SESSION['role']) && $_SESSION['role']==='recruteur'){
+        require INC.'db_connect.php';
+
+        $uuid = $_SESSION['uuid']; 
+        
+        $sql = "SELECT * FROM `recruteurs` WHERE `uuid`= :uuid";
+        $query = $pdo->prepare($sql);
+        $query->bindvalue(':uuid', $uuid, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_OBJ);
+        
+
+        if (!empty($result)) {
+            include_once PAGES.'template/recruteur_navbar.php';
+
+            echo('données du recruteur remplies');
+
+        } else {
+            return require INC.'recruteur_form_data.php';
+        }
+
+        
+
+
+    } else {
+        header("Location: ./index.php?section=error.php");
+    }
+   }
 }
