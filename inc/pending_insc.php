@@ -3,7 +3,16 @@ $tier = new Tiers();
 $rows = $tier->pendingInscription();
 
 if (!empty($rows)) {
-    require_once PAGES.'template/pending_inscription_thead.php';
+    ?>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php
     foreach ($rows as $row) {
         $uuid = $row->uuid;
         $email = $row->email;

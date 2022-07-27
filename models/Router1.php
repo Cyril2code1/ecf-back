@@ -8,13 +8,7 @@ class Router1 {
 
    static function main_route(){
 
-    /*
-    if (isset($_SESSION['role'])){
-        $_GET['section'] = $_SESSION['role'];
-    }
-    */
-
-    if (isset($_GET['section'])){
+     if (isset($_GET['section'])){
         $section = $_GET['section'];
     } else {
         $section = 'home';
@@ -60,6 +54,18 @@ class Router1 {
    
    static function recruteur_route() {
     if (isset($_SESSION['role']) && $_SESSION['role']==='recruteur'){
+        if(isset($_GET['action'])) {
+            switch ($_GET['action']) {
+                case 'del_ad':
+                    return require INC.'del_ad.php';
+                    break;
+                case 'add_ad':
+                    return require INC.'add_ad_form.php';
+                    break;
+                default:
+                    return require PAGES.'error.php';
+            }
+        }
         require INC.'db_connect.php';
 
         $uuid = $_SESSION['uuid']; 
@@ -72,17 +78,12 @@ class Router1 {
         
 
         if (!empty($result)) {
-            include_once PAGES.'template/recruteur_navbar.php';
 
-            echo('données du recruteur remplies');
+            return require_once INC.'recruteur_main.php';
 
         } else {
             return require INC.'recruteur_form_data.php';
         }
-
-        
-
-
     } else {
         header("Location: ./index.php?section=error.php");
     }

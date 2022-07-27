@@ -39,7 +39,7 @@ class Tiers {
     }
 
     public function tierSignUp() {
-        require_once INC.'db_connect.php';
+        require INC.'db_connect.php';
         if(!empty($_POST) 
         && !empty($_POST['email']) 
         && !empty($_POST['password1']) 
@@ -67,7 +67,7 @@ class Tiers {
                 } else {
 
                     $sql = "INSERT INTO tiers (uuid, email, password, role, validation)
-                             VALUE (uuid(),
+                             VALUES (uuid(),
                                     :email,
                                     :password,
                                     :role,
@@ -92,7 +92,7 @@ class Tiers {
     }
 
     public function pendingInscription() {
-        require_once INC.'db_connect.php';
+        require INC.'db_connect.php';
 
         $sql = "SELECT * FROM tiers WHERE validation = '0'";
         $query = $pdo->prepare($sql);
