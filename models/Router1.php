@@ -39,6 +39,15 @@ class Router1 {
                 case 'delete_insc':
                     return require INC.'delete_insc.php';
                     break;
+                case 'pending_ads':
+                    return require INC.'pending_ads.php';
+                    break;
+                case 'valid_ad':
+                    return require INC.'valid_ad.php';
+                    break;
+                case 'delete_ad':
+                    return require INC.'delete_ad.php';
+                    break;
                 default:
                     return require PAGES.'error.php';
             }

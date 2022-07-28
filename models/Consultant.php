@@ -34,6 +34,21 @@ class Consultant {
 
     return $query;
    }
+
+   public function validAd($id) {
+    require INC.'db_connect.php';
+
+    $sql = "UPDATE `annonces` SET `validation`='1' WHERE `id`=:id;";
+
+    $query = $pdo->prepare($sql);
+
+    $query->bindValue(':id', $id, PDO::PARAM_STR);
+
+    $query->execute();
+
+    return $query;
+
+   }
 }
 
 

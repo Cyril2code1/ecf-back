@@ -2,9 +2,9 @@
 
 $id = $_GET['id'];
 
-$recruteur = new Recruteur();
+$ad = new Ad();
 
-$recruteur->delAd($id);
+$ad->delAd($id);
 
 
 header('location:index.php?section=recruteur');

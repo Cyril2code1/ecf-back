@@ -77,18 +77,6 @@ class Recruteur {
         return $result;
     }
 
-    public function delAd($id) {
-        require INC.'db_connect.php';
-
-        $sql = "DELETE FROM `annonces` WHERE `id`=:id;";
-
-        $query = $pdo->prepare($sql);
-
-        $query->bindValue(':id', $id, PDO::PARAM_STR);
-
-        $query->execute();
-
-        return $query;
-    }
+    
 
 }
