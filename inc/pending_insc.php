@@ -1,4 +1,6 @@
+<h3> Inscriptions: </h3>
 <?php
+
 $tier = new Tiers();
 $rows = $tier->pendingInscription();
 

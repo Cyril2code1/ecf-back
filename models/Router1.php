@@ -97,4 +97,40 @@ class Router1 {
         header("Location: ./index.php?section=error.php");
     }
    }
+
+   static function candidatRoute() {
+    if (isset($_SESSION['role']) && $_SESSION['role']==='candidat'){
+        if(isset($_GET['action'])) {
+            switch ($_GET['action']) {
+                case 'choose_ad':
+                    return require INC.'del_ad.php';
+                    break;
+                default:
+                    return require PAGES.'error.php';
+            }
+        }
+        require INC.'db_connect.php';
+
+        $uuid = $_SESSION['uuid']; 
+        
+        $sql = "SELECT * FROM `candidats` WHERE `uuid`= :uuid";
+        $query = $pdo->prepare($sql);
+        $query->bindvalue(':uuid', $uuid, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_OBJ);
+        
+
+        if (!empty($result)) {
+
+            return require_once INC.'candidat_main.php';
+
+        } else {
+            return require INC.'candidat_form_data.php';
+        }
+    } else {
+        header("Location: ./index.php?section=error.php");
+    }
+   }
+
+
 }

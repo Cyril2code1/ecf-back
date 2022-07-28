@@ -1,6 +1,6 @@
 <?php
 $ad = new Ad();
-$rows = $ad->pendingAds();
+$rows = $ad->selectAds(0);
 
 if (!empty($rows)) {
     ?>

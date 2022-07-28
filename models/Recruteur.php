@@ -24,6 +24,10 @@ class Recruteur {
             $query->bindValue(':address', $address, PDO::PARAM_STR);
 
             $query->execute();
+
+            $message = "Votre profil a bien été complété, vous pouvez aller rédiger votre<a href='./index.php?section=recruteur'> premiere annonce</a>";
+
+            return $message;
         }
     }
 

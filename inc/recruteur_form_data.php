@@ -1,7 +1,7 @@
 <h2 class="text-center text-primary text-decoration-underline mt-5">merci de compléter vos données</h2>
      
 
-<div class="border border-danger border-3">
+<div class="border border-success border-3">
     <?php
         $recruteur = new Recruteur;
         echo ($recruteur->data());

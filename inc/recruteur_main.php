@@ -1,4 +1,4 @@
-<h2>Ajouter une annonce:</h2>
+<h3>Ajouter une annonce:</h3>
 
 <?php
 $recruteur = new Recruteur();
@@ -33,7 +33,7 @@ $recruteur->addAd();
 
 </form>
 
-<h2>Voir les annonces</h2>
+<h3>Voir les annonces</h3>
 <?php
 
 $uuid = $_SESSION['uuid'];
