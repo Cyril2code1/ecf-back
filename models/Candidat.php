@@ -56,7 +56,6 @@ class Candidat {
                 $query->bindValue(':uuid', $uuid, PDO::PARAM_STR);
                 $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
                 $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
-                $query->bindValue(':cv', $cv, PDO::PARAM_STR);
 
                 $query->execute();
 
