@@ -25,9 +25,8 @@ class Recruteur {
 
             $query->execute();
 
-            $message = "Votre profil a bien été complété, vous pouvez aller rédiger votre<a href='./index.php?section=recruteur'> premiere annonce</a>";
+            header('location:index.php?section=recruteur');
 
-            return $message;
         }
     }
 

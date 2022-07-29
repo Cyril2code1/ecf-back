@@ -5,29 +5,7 @@ class Ad {
     public function __construct() {
 
     }
-/*
-    public function validAd() {
-        require INC.'db_connect.php';
 
-        $sql = "SELECT * FROM `annonces` WHERE `validation` = '1'";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-        $result = $query->fetchAll(PDO::FETCH_OBJ);
-        return $result;
-    }
-
-    public function pendingAds() {
-        require INC.'db_connect.php';
-
-        $sql = "SELECT * FROM `annonces` WHERE `validation`=:valid";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':valid', false, PDO::PARAM_BOOL);
-        $query->execute();
-        $result = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $result;
-    }
-*/
     public function selectAds($validation) {
         require INC.'db_connect.php';
 
@@ -52,6 +30,18 @@ class Ad {
         $query->execute();
 
         return $query;
+    }
+
+    public function selectAdById($id) {
+        require INC.'db_connect.php';
+
+        $sql = "SELECT * FROM `annonces` WHERE `id`=:id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $result;
     }
 
 }

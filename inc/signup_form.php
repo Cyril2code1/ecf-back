@@ -3,7 +3,7 @@
 if (empty($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     ?>
     <div class="mt-4 mb-3">
-        <div class="text-center">Compte à créer:</div>
+        <div class="text-center">Etes-vous:</div>
         <div class="form-check-inline">
             <input class="form-check-input" type="radio" name="role" value="recruteur" checked>
             <label class="form-check-label" for="recruteur">

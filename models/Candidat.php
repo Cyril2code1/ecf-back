@@ -59,9 +59,24 @@ class Candidat {
 
                 $query->execute();
 
-                $message = '<div class="border border-success border-3">Votre profil a bien été complété, vous pouvez maintenant aller consulter <a href=\'./index.php?section=candidat\'>les annonces</a></div>';
-        }
+                header('location:index.php?section=candidat');
+                
+            }
         return $message;
         }
     }
+
+    public function cv($uuid) {
+        require INC.'db_connect.php';
+
+        $sql = "SELECT * FROM `candidats` WHERE `uuid`=:uuid";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':uuid', $uuid, PDO::PARAM_STR);
+        $query->execute();
+
+        $result = $query->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
+
 }

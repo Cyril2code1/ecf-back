@@ -1,5 +1,3 @@
-<h2>signup</h2>
-
 <?php
 $tier = new Tiers();
 echo ($tier -> tierSignUp());

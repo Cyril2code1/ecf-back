@@ -48,6 +48,9 @@ class Router1 {
                 case 'delete_ad':
                     return require INC.'delete_ad.php';
                     break;
+                case 'pending_candidature':
+                    return require INC.'pending_candidatures.php';
+                    break;
                 default:
                     return require PAGES.'error.php';
             }
@@ -102,8 +105,8 @@ class Router1 {
     if (isset($_SESSION['role']) && $_SESSION['role']==='candidat'){
         if(isset($_GET['action'])) {
             switch ($_GET['action']) {
-                case 'choose_ad':
-                    return require INC.'del_ad.php';
+                case 'postuler':
+                    return require INC.'candidature.php';
                     break;
                 default:
                     return require PAGES.'error.php';
