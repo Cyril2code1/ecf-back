@@ -51,6 +51,9 @@ class Router1 {
                 case 'pending_candidature':
                     return require INC.'pending_candidatures.php';
                     break;
+                case 'valid_cand':
+                    return require INC.'valid_cand.php';
+                    break;
                 default:
                     return require PAGES.'error.php';
             }

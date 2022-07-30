@@ -46,7 +46,7 @@ class Candidat {
                 $message = '<div class="border border-danger border-3">Erreur: '.$error.'</div>';
             } else {    
                
-                move_uploaded_file($cv['tmp_name'], "./cv_pdf/".$uuid);  
+                move_uploaded_file($cv['tmp_name'], "./cv_pdf/$uuid.pdf");  
                 require INC.'db_connect.php';
                 
                 $sql = "INSERT INTO `candidats` (`uuid`, `lastname`, `firstname`) VALUES (:uuid, :lastname, :firstname)";

@@ -21,7 +21,6 @@ if (!empty($rows)) {
 ?>
         <tr>
             <th scope="row"> <?= $email; ?></th>
-            <td><?= $uuid; ?></td>
             <td>
                 <a href="./index.php?section=consultant&&action=valid_insc&&id=<?= $uuid ?>">Valider</a>  
                 <a href="./index.php?section=consultant&&action=delete_insc&&id=<?= $uuid ?>">Supprimer</a>                            

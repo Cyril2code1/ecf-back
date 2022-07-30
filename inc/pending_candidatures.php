@@ -50,7 +50,7 @@ if (!empty($rows)) {
                     title="cv"
                     width="300"
                     height="200"
-                    src="./cv_pdf/<?= $uuid ?>">
+                    src="./cv_pdf/<?= $uuid ?>.pdf">
                 </iframe>
             </td>
             <td>
