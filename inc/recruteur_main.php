@@ -19,7 +19,7 @@ $recruteur->addAd();
     </div>
 
     <div class="mb-3">
-        <label for="description" class="form-label">Description détailée du poste:</label>
+        <label for="description" class="form-label">Description détaillée du poste:</label>
         <textarea id="description" name="description" rows="5" cols="50" class="form-control" aria-describedby="descriptionHelpBlock" required>
         </textarea>
         <div id="descriptionHelpBlock" class="form-text">
