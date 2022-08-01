@@ -12,8 +12,8 @@ class Recruteur {
 
                        
             $uuid = $_SESSION['uuid'];
-            $name = $_POST['name'];
-            $address = trim($_POST['address']);
+            $name = Security::secureData($_POST['name']);
+            $address = Security::secureData($_POST['address']);
    
             $sql = "INSERT INTO `recruteurs` (`uuid`, `name`, `address`) VALUES (:uuid, :name, :address)";
 
@@ -38,9 +38,9 @@ class Recruteur {
         && !empty($_POST['place']) 
         && !empty($_POST['description'])){
 
-            $job = $_POST['job'];
-            $place = $_POST['place'];
-            $description = trim($_POST['description']);
+            $job = Security::secureData($_POST['job']);
+            $place = Security::secureData($_POST['place']);
+            $description = Security::secureData($_POST['description']);
             $validation = '0';
             $uuid = $_SESSION['uuid'];
  

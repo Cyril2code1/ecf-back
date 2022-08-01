@@ -10,8 +10,8 @@ class Candidat {
         if (!empty($_POST['lastname']) && !empty($_POST['firstname']) && !empty($_FILES['cv'])) {
 
             $uuid = $_SESSION['uuid'];
-            $lastname = $_POST['lastname'];
-            $firstname = $_POST['firstname'];
+            $lastname = Security::secureData($_POST['lastname']);
+            $firstname = Security::secureData($_POST['firstname']);
             $cv = $_FILES['cv'];
             
 
